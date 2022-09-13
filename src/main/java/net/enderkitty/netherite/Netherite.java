@@ -1,6 +1,8 @@
 package net.enderkitty.netherite;
 
 import com.mojang.logging.LogUtils;
+import net.enderkitty.netherite.block.ModBlocks;
+import net.enderkitty.netherite.item.ModItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,6 +19,9 @@ public class Netherite {
 
     public Netherite() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
